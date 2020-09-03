@@ -408,3 +408,9 @@ class ST7735(object):
         pixelbytes = list(image_to_data(image, self._rotation))
         # Write data to hardware.
         self.data(pixelbytes)
+        
+
+    def clear(self, color=(0,0,0)):
+        """Clear the image buffer to the specified RGB color (default black)."""
+        width, height = self.buffer.size
+        self.buffer.putdata([color]*(width*height))
